@@ -134,6 +134,21 @@ html, body {
     height: 100%;
     object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
 }
+.section-da {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    top: -30px;
+}
+.section-da img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* Contenedor del texto, posicionado sobre la imagen */
 .photo-text {
     position: absolute; /* Posiciona el texto sobre la imagen */
@@ -178,7 +193,7 @@ html, body {
 }
 #marriage-announcement {
     max-width: 680px;
-    margin: 0 auto;
+    margin: -100px auto 0;
     padding: 20px 20px 10px;
     text-align: center;
 }
@@ -190,27 +205,43 @@ html, body {
     font-size: 42px;
     text-transform: none;
 }
-.calendar-button { margin-top: 20px; text-align: center; }
+.calendar-button {
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+}
 .btn-calendar {
     display: inline-block;
     padding: 12px 22px;
     background: transparent;
     color: #687754;
-    border: 1px solid rgba(104, 119, 84, 0.45);
+    border: none;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(80, 92, 62, 0.28);
 }
-.section-music { padding: 20px; text-align: center; }
+.section-music {
+    padding: 30px;
+    text-align: center;
+}
 .section-music h2 {
     margin: 0 0 12px;
-    font-size: 32px;
+    font-size: 25px;
     background: linear-gradient(to right, #8f795e, #b39a72, #d0b98a, #b39a72, #8f795e);
     -webkit-background-clip: text;
     color: transparent;
 }
 .section-music audio { width: min(90%, 420px); accent-color: #687754; }
+.music-play-button {
+    display: block;
+    margin: 0 auto 12px;
+    border: none;
+    background: transparent;
+    color: #687754;
+    font-size: 32px;
+    cursor: pointer;
+}
 .reserved-palette {
     display: flex;
     justify-content: center;
@@ -486,7 +517,7 @@ html, body {
     color: #8B9C74;
 }
 .gifts-section, .gallery-section{
-    background-color: #f4fae9a8;
+    background-color: transparent;
     text-align: center;
     padding: 10px 0 30px;
     margin-top: 5px;
@@ -511,7 +542,7 @@ html, body {
     margin: 0;
     padding: 5px 10px;
     background-color: rgba(104, 119, 84, 0.48);
-    border: solid 1px rgba(104, 119, 84, 0.7);
+    border: none;
     box-shadow: 0 8px 18px rgba(65, 76, 48, 0.3);
     text-align: center;
     display: flex;
@@ -522,16 +553,16 @@ html, body {
     font-size: 90px;
     background: linear-gradient(to right, #8f795e, #b39a72, #d0b98a, #b39a72, #8f795e);
     -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    color: #687754;
+    text-shadow: none;
     text-align: center;
 }
 .label {
     font-size: 74px;
     background: linear-gradient(to right, #8f795e, #b39a72, #d0b98a, #b39a72, #8f795e);
     -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    color: #687754;
+    text-shadow: none;
     text-align: center;
 }
 .directions-button, .wishes-section button, .rsvp-section button, .playlist-section button, .filter-section button, .gifts-section button{  
@@ -820,7 +851,7 @@ footer .logo img {
         padding: 25px 15px 10px;
     }
     #marriage-announcement {
-        padding: 15px 20px 5px;
+        /* padding: 15px 20px 5px; */
     }
     #marriage-announcement h2 {
         font-size: 35px;
@@ -861,6 +892,7 @@ footer .logo img {
     }
     .countdown{
         margin-top: 20px;
+        padding: 15px;
     }
     .countdown .unit {
         margin: 0 5px;
@@ -1084,4 +1116,92 @@ footer .logo img {
         width: 120px;
         height: auto;
     }
+}
+
+/* Shared invitation typography */
+.parents-section h2,
+#marriage-announcement h2,
+.itinerary-item h2,
+.gifts-section h2,
+.dresscode-section h2,
+.gallery-section h2,
+.wishes-section h2,
+.album-section h2,
+.rsvp-section h2,
+.parents-group h3 {
+    font-size: 30px !important;
+    background: linear-gradient(to right, #8f795e, #b39a72, #d0b98a, #b39a72, #8f795e);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+body p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 400;
+}
+.banner-section p {
+    font-size: 20px !important;
+}
+.directions-button,
+.wishes-section button,
+.rsvp-section button,
+.gifts-section button,
+.dresscode-buttons button,
+.upload-btn,
+.btn-calendar {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 100;
+}
+.separator-photo {
+    height: auto;
+    overflow: hidden;
+}
+.separator-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+.section-dd {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.section-dd img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section-di {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.section-di img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.qr-container > img {
+    width: 200px;
+    height: auto;
+}
+.parents-grid {
+    padding: 20px;
+}
+button,
+.btn-calendar,
+.upload-btn {
+    text-transform: none !important;
 }
