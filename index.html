@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irvin Antonio Godoy López &amp; Mirlin Rosineth Quiñonez Trigueros</title>
+    <meta name="description" content="Llego el momento de unir nuestro amor por siempre">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nos Casamos">
+    <meta property="og:image" content="https://images.pexels.com/photos/36415880/pexels-photo-36415880.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/images/sobre-arriba.png" as="image">
+    <link rel="preload" href="/images/sobre-abajo.jpg" as="image">
+    <link rel="preload" href="/images/play.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <script src="https://kit.fontawesome.com/3c219a0781.js" crossorigin="anonymous"></script>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head> 
+<body>
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+    </div>    
+<div class="main-content">
+    <!-- Sección de sobre -->
+    <div id="envelope">
+        <div id="envelope-top"></div>
+        <div id="seal" onclick="openEnvelopeAndPlayMusic()">
+            <h2 class="fade-in-element">I | M</h2>
+        </div>
+        <div id="envelope-bottom"></div>
+    </div>
+    <!-- Sección de invitación -->
+    <div id="invitation" class="hidden">
+          <div class="photo-section fade-in-element">
+             <div class="photo-container">
+                 <img src="/images/fp.jpg" alt="Foto de la pareja" class="photo fade-in-element fade-in-element" loading="lazy">
+             </div>
+                <div class="photo-text">
+                  <h1>Irvin Godoy &amp; Mirlin Quiñónez</h1>
+                  <h2>28 . 11 . 2026</h2>
+               </div>
+          </div> 
+        <div id="marriage-announcement" class="fade-in-element">
+            <h2>¡Nos casamos!</h2>
+            <p>El día en que nuestros corazones se unen para siempre ha llegado. Compartan nuestra alegría en nuestra boda.</p>
+        </div>
+        <div class="countdown fade-in-element">
+            <div class="unit">
+                <span id="days" class="number">00</span>
+                <span class="label">Días</span>
+            </div>
+            <div class="unit">
+                <span id="hours" class="number">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="unit">
+                <span id="minutes" class="number">00</span>
+                <span class="label">Minutos</span>
+            </div>
+            <div class="unit">
+                <span id="seconds" class="number">00</span>
+                <span class="label">Segundos</span>
+            </div>
+        </div>
+        <div class="calendar-button fade-in-element">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Nos+casamos+Irvin+Godoy+y+Mirlin+Qui%C3%B1%C3%B3nez&amp;dates=20261128/20261129" target="_blank" class="btn-calendar">Agregar al Calendario</a>
+        </div>
+        <div class="section-music fade-in-element">
+            <h2>"Yellow - Coldplay"</h2>
+            <audio id="musica" controls loop>
+                <source src="/music/Yellow.mp3" type="audio/mpeg">
+                Tu navegador no soporta la reproducción de audio.
+            </audio>
+        </div>
+         <div class="content">
+            <div class="guest-section fade-in-element">
+                <p id="guest-name" class="fade-in-element">¡Fam. Rosales, están invitados!</p>
+            </div>
+            <div class="invitation-info-section fade-in-element fade-in-element">
+                <p>Invitación válida por <span id="passes">2 pases</span> <i class="fa-solid fa-ticket"></i> </p>
+            </div>
+            <section class="parents-section">
+                <h2>Con la bendición de Dios y de nuestros padres</h2>
+                <div class="parents-grid">
+                    <div class="parents-group">
+                        <h3>Padres del novio</h3>
+                        <p>Rubén Antonio Godoy Zepeda †</p>
+                        <p>Elva Consuelo López López</p>
+                    </div>
+                    <div class="parents-group">
+                        <h3>Padres de la novia</h3>
+                        <p>Rudilfio Oseas Quiñonez Rivera</p>
+                        <p>Ruth Arcely Trigueros Corado</p>
+                    </div>
+                </div>
+            </section>
+            </div>
+            <div class="itinerary-section fade-in-element fade-in-element">
+                 <div class="itinerary-item">
+                    <lord-icon 
+                     src="https://cdn.lordicon.com/lhzhnixi.json"  
+                     stroke="light" 
+                     colors="primary:#5F6D4B,secondary:#A6B48B" 
+                     class="lord-icon-style"
+                     ></lord-icon>
+                    <h2>Ceremonia y Recepción</h2>
+                    <p>Paraíso del Río</p>
+                    <div class="itinerary-details">
+                        <div class="time-location">
+                            <span class="date">28 de Noviembre</span>
+                            <span class="separator">|</span>
+                            <span class="time">5:00 pm</span>
+                        </div>
+                        <p class="location">Kilómetro 155.5 de la carretera Panamericana / Interamericana, en la aldea Mongoy, Asunción Mita, Jutiapa, Guatemala</p>
+                        <button class="directions-button" onclick="location.href='https://maps.app.goo.gl/sdNr9yQGv227Dc3b7'">CÓMO LLEGAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/S1.jpg" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <div class="gifts-section fade-in-element fade-in-element">
+                <h2>Regalo</h2>
+                <lord-icon 
+                    src="https://cdn.lordicon.com/ibydboev.json" 
+                    stroke="light" 
+                    colors="primary:#5F6D4B,secondary:#A6B48B" 
+                    class="lord-icon-style">
+                </lord-icon>
+            
+                <p>Celebrar nuestro amor junto a ustedes es el regalo más especial.<br>Para quienes deseen hacernos un obsequio, tendremos lluvia de sobres.<br>¡Gracias por acompañarnos en este momento tan importante!</p>
+            
+            </div>
+            
+            <div class="dresscode-section fade-in-element">
+                <h2>Dress Code</h2>
+                <lord-icon
+                    src="https://cdn.lordicon.com/okgbpdra.json"
+                    stroke="light"
+                    colors="primary:#5F6D4B,secondary:#A6B48B"
+                    class="lord-icon-style"
+                ></lord-icon>
+                <p>Vestimenta elegante formal. Colores blanco, beige y verde olivo reservados.</p>
+                <div class="reserved-palette" aria-label="Paleta reservada">
+                    <span class="color-dot color-white"></span>
+                    <span class="color-dot color-beige"></span>
+                    <span class="color-dot color-olive"></span>
+                </div>
+                <p class="palette-label">Paleta Reservada</p>
+                
+                <div class="dresscode-buttons">
+                    <button onclick="window.open('https://www.pinterest.com/search/pins/?q=Bodas%20en%20la%20tarde%20para%20damas&rs=typed', '_blank')">
+                        Ideas para Damas
+                    </button>
+                    <button onclick="window.open('https://www.pinterest.com/search/pins/?q=Traje%20formal%20caballeros&rs=typed', '_blank')">
+                        Ideas para Caballeros
+                    </button>
+                </div>
+            </div>  
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/S2.jpg" alt="Foto de la pareja" loading="lazy">
+            </div>           
+            <div class="gallery-section fade-in-element fade-in-element">
+                <h2>Galería de fotos</h2>
+            
+                <!-- Checkbox oculto que controla la visibilidad del modal -->
+              <input type="checkbox" id="toggle-modal" class="hidden-checkbox">
+            
+                <!-- Modal de fotos -->
+               <div id="photo-modal" class="modal">
+                   <Label para cerrar el modal 
+                   label for="toggle-modal" class="close">&times;</label>
+                    <img class="modal-content" id="main-photo-modal" alt="modal">
+                </div>
+            
+                <!-- Galería principal -->
+                <div class="gallery-main fade-in-element">
+                    <!-- Al hacer clic en la imagen principal, se abre el modal -->
+                   <label for="toggle-modal">
+                        <img id="main-photo" src="/images/G1.jpg" alt="Foto principal" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                </div>
+            
+                <!-- Miniaturas de la galería -->
+              <div class="gallery-thumbs fade-in-element">
+                    <!-- Cada miniatura también actúa como disparador del modal -->
+                  <label for="toggle-modal">
+                        <img src="images/G1.jpg" alt="Foto 1"  onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/G2.jpg" alt="Foto 2" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/G3.jpg" alt="Foto 3" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/G4.jpg" alt="Foto 4" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/G5.jpg" alt="Foto 5" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/G6.jpg" alt="Foto 6" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                </div>
+            </div>
+            <div class="wishes-section fade-in-element fade-in-element">
+                <h2>Déjanos tu deseo</h2>
+                <lord-icon src="https://cdn.lordicon.com/vgyuhnxn.json" trigger="loop" delay="2000" stroke="light" colors="primary:#5F6D4B,secondary:#A6B48B" style="width:200px;height:200px"></lord-icon>
+                <p>Queremos guardar este momento también en palabras. Déjanos tu mensaje y tus mejores deseos para nuestro matrimonio.</p>
+                <div class="wishes-buttons-wrap">
+                    <button type="button" onclick="toggleWishForm()">Dejar deseo</button>
+                    <button type="button" onclick="toggleWishes()">Leer deseos</button>
+                </div>
+                <div id="wishes" class="hidden">
+                    <!-- Aquí se mostrarán los buenos deseos -->
+                </div>
+                <div id="wish-form" class="hidden">
+                    <label for="wish-name">Nombre:</label>
+                    <input type="text" id="wish-name">
+                    <label for="wish-message">Mensaje:</label>
+                    <textarea id="wish-message"></textarea>
+                    <button onclick="submitWish()">Enviar</button>
+                </div>
+            </div>
+            <div class="album-section fade-in-element">
+                <h2>¡Hagamos los recuerdos inolvidables!</h2>
+                 <h1 class="hashtag">#noscasamosirvinymirlin</h1>
+                <div class="qr-container">
+                    <div id="qrCode"></div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&amp;data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1eCRtmRCsRnG-bwA-e3otb9OIm9jn68Nv%3Fusp%3Dsharing" alt="Escanea el QR" width="400">
+                    <p>Escanea el código QR o usa el botón para subir tus fotos</p>
+                    <a class="upload-btn" href="https://drive.google.com/drive/folders/1eCRtmRCsRnG-bwA-e3otb9OIm9jn68Nv?usp=sharing" target="_blank">SUBIR FOTOS</a>
+                </div>
+            </div>
+            
+            <div class="rsvp-section fade-in-element fade-in-element">
+                <h2>Confirmación</h2>
+                <lord-icon 
+                 src="https://cdn.lordicon.com/wzwygmng.json" 
+                 stroke="light"  
+                 colors="primary:#5F6D4B,secondary:#A6B48B" 
+                 class="lord-icon-style"
+                 ></lord-icon>
+                <p>Para nosotros es muy importante que confirmes tu asistencia lo antes posible, o bien que nos indiques que no podrás acompañarnos.</p>
+                <button type="button" onclick="confirmarWhatsApp()">CONFIRMA TU ASISTENCIA</button>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/S3.jpg" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <div class="banner-section fade-in-element fade-in-element1">
+                <p>Más valen dos que uno, porque obtienen más fruto de su esfuerzo... ¡Un cordón de tres dobleces no se rompe fácilmente! - Eclesiastés 4:9, 12</p>
+            </div>
+            <footer class="fade-in-element fade-in-element">
+                <div class="social-icons">
+                    <a href="https://wa.me/50236011737" aria-label="Whatsapp"><i class="fab fa-whatsapp fade-in-element"></i></a>
+                    <a href="https://www.facebook.com/thetwodesign?mibextid=ZbWKwl" aria-label="Facebook"><i class="fab fa-facebook fade-in-element"></i></a>
+                    <a href="https://www.instagram.com/thetwodesign?igsh=M2k5eWF4dHl3czNv" aria-label="Instagram"><i class="fab fa-instagram fade-in-element"></i></a>
+                </div>
+                <div class="logo fade-in-element">
+                    <img src="/images/2.png" alt="Logo de la empresa">
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+    <script type="module" src="/database.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script type="module" src="/loads.js" defer></script>
+</body>
+</html>
