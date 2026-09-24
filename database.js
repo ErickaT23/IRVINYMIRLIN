@@ -1,6 +1,6 @@
 // Importar Firebase y Realtime Database
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
+import { getDatabase, ref, push, onValue, get, set } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
 
 // Configuración Firebase (reemplaza con la tuya)
 const firebaseConfig = {
@@ -16,6 +16,8 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const eventId = window.eventConfig?.eventId || "irvinymirlin2026";
+const eventPath = (section) => `eventos/${eventId}/${section}`;
 
 console.log("✅ Firebase conectado correctamente!");
 
@@ -25,7 +27,7 @@ window.submitWish = function () {
   const message = document.getElementById("wish-message").value.trim();
 
   if (name !== "" && message !== "") {
-    push(ref(db, "buenos-deseos/"), {
+    push(ref(db, eventPath("deseos")), {
       nombre: name,
       mensaje: message,
       timestamp: new Date().toISOString()
@@ -56,7 +58,7 @@ window.submitWish = function () {
 // Función para cargar y mostrar los buenos deseos desde Firebase
 function cargarDeseos() {
   const wishesDiv = document.getElementById('wishes');
-  const wishesRef = ref(db, 'buenos-deseos/');
+  const wishesRef = ref(db, eventPath("deseos"));
 
   onValue(wishesRef, (snapshot) => {
     const data = snapshot.val();
@@ -75,6 +77,17 @@ function cargarDeseos() {
 // Exponer cargarDeseos globalmente para usar desde HTML u otros scripts
 window.cargarDeseos = cargarDeseos;
 
+export async function getEventData(section) {
+  const snapshot = await get(ref(db, eventPath(section)));
+  return snapshot.exists() ? snapshot.val() : {};
+}
+
+export async function saveEventData(section, id, data) {
+  await set(ref(db, `${eventPath(section)}/${id}`), data);
+}
+
+window.EventDatabase = { getEventData, saveEventData, eventId };
+
 // Funciones para mostrar/ocultar formulario y lista
 window.toggleWishForm = function() {
   const form = document.getElementById('wish-form');
@@ -90,4 +103,3 @@ window.toggleWishes = function() {
 document.addEventListener('DOMContentLoaded', () => {
   cargarDeseos();
 });
-
