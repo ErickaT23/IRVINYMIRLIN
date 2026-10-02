@@ -142,11 +142,9 @@ html, body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    top: -30px;
 }
 .section-da img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 /* Contenedor del texto, posicionado sobre la imagen */
