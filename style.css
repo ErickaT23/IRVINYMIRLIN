@@ -719,6 +719,9 @@ html, body {
 }
 /* Estilos del botón de cierre */
 .close {
+    border: 0;
+    background: transparent;
+    padding: 0;
     position: absolute;
     top: 50px;
     right: 20px;
