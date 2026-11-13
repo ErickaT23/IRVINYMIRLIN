@@ -713,8 +713,7 @@ html, body {
     align-content: center;
     justify-items: center;
 }
-/* Mostrar el modal cuando el checkbox está activado */
-.hidden-checkbox:checked + .modal {
+.modal.is-open {
     display: grid;
 }
 /* Estilos del botón de cierre */

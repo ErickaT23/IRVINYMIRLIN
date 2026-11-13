@@ -136,21 +136,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     window.changePhoto = function(element) {
-        const mainPhotoModal = document.getElementById('main-photo');
-        const mainPhoto = document.getElementById('main-photo-modal');
-        mainPhoto.src = element.src;
-        mainPhotoModal.src = element.src;
-        if (element !== mainPhoto) {
-            openModal();
-        }
-    }
+        const mainPhoto = document.getElementById('main-photo');
+        const modalPhoto = document.getElementById('main-photo-modal');
+        const source = element.currentSrc || element.src;
+
+        mainPhoto.src = source;
+        modalPhoto.src = source;
+        openModal();
+    };
 
     function openModal() {
-        document.getElementById('photo-modal').style.display = 'block';
+        document.getElementById('photo-modal').classList.add('is-open');
     }
 
     function closeModal() {
-        document.getElementById('photo-modal').style.display = 'none';
+        document.getElementById('photo-modal').classList.remove('is-open');
     }
 
     window.toggleDetails = function() {
