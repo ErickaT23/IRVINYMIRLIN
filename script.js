@@ -158,7 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
         details.style.display = (details.style.display === "none" || details.style.display === "") ? "block" : "none";
     }
 
-    window.submitWish = submitWish;
+    if (typeof submitWish === 'function') {
+        window.submitWish = submitWish;
+    }
     window.toggleWishForm = toggleWishForm;
     window.toggleWishes = toggleWishes;
 });
