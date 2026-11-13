@@ -115,7 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Optimización visual
-    document.querySelector(".title").classList.add("visible");
+    const title = document.querySelector(".title");
+    if (title) title.classList.add("visible");
 
     // Buenos deseos
     function displayWishes() {
