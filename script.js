@@ -206,6 +206,11 @@ window.enviarConfirmacion = async function () {
         alert("Ingresa una cantidad válida de asistentes.");
         return;
     }
+    const texto = response === "confirmado"
+        ? hasAssignedPasses
+            ? `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez. Seremos ${cantidad} ${cantidad === 1 ? "persona" : "personas"}.`
+            : `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez.`
+        : `Hola, soy ${guest.name} y no podré asistir a la boda de Irvin Godoy y Mirlin Quiñónez.`;
     const rsvp = { id: guest.id, nombre: guest.name, respuesta: response, cantidad, fecha: new Date().toISOString() };
     try {
         if (window.EventDatabase?.saveEventData) await window.EventDatabase.saveEventData("rsvp", guest.id, rsvp);
@@ -214,11 +219,6 @@ window.enviarConfirmacion = async function () {
         alert("No se pudo guardar la confirmación. Intenta nuevamente.");
         return;
     }
-    const texto = response === "confirmado"
-        ? hasAssignedPasses
-            ? `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez. Seremos ${cantidad} ${cantidad === 1 ? "persona" : "personas"}.`
-            : `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez.`
-        : `Hola, soy ${guest.name} y no podré asistir a la boda de Irvin Godoy y Mirlin Quiñónez.`;
     window.location.href = `https://wa.me/50250044845?text=${encodeURIComponent(texto)}`;
 };
   
