@@ -172,19 +172,53 @@ window.toggleDetails = function() {
         : "none";
 }
 
-window.confirmarWhatsApp = function () {
-    const phone = "50250044845";
-  
+window.abrirConfirmacion = function () {
+    const form = document.getElementById("rsvp-form");
+    const field = document.getElementById("rsvp-passes-field");
+    const input = document.getElementById("rsvp-passes");
     const guest = window.currentGuest;
-  
-    const nombre = guest?.name ? guest.name : "Invitado";
-    const pases = guest?.passes ? guest.passes : 1;
-  
-    const verbo = pases === 1 ? "soy" : "somos";
-  
-    const texto = `Hola, soy ${nombre} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez, el 28 de noviembre de 2026 en Paraíso del Río, Asunción Mita, Jutiapa. Tengo asignados ${pases} ${pases === 1 ? "pase" : "pases"}.`;
-  
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(texto)}`;
-    window.location.href = url;
-  };
+    if (!form || !guest) return;
+    form.classList.remove("hidden");
+    const hasAssignedPasses = Number.isInteger(guest.passes);
+    if (hasAssignedPasses) {
+        input.max = guest.passes;
+        input.value = guest.passes;
+    } else {
+        input.removeAttribute("max");
+        input.value = "";
+        field.hidden = true;
+    }
+    document.querySelectorAll('input[name="rsvp-response"]').forEach(radio => {
+        radio.onchange = () => {
+            field.hidden = radio.value === "no_asistira" || !hasAssignedPasses;
+            input.required = radio.value !== "no_asistira" && hasAssignedPasses;
+        };
+    });
+};
+
+window.enviarConfirmacion = async function () {
+    const guest = window.currentGuest;
+    const response = document.querySelector('input[name="rsvp-response"]:checked')?.value;
+    const input = document.getElementById("rsvp-passes");
+    const hasAssignedPasses = Number.isInteger(guest?.passes);
+    const cantidad = response !== "confirmado" ? null : hasAssignedPasses ? Number(input.value) : "Libre";
+    if (!guest || !response || (response === "confirmado" && hasAssignedPasses && (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > guest.passes))) {
+        alert("Ingresa una cantidad válida de asistentes.");
+        return;
+    }
+    const rsvp = { id: guest.id, nombre: guest.name, respuesta: response, cantidad, fecha: new Date().toISOString() };
+    try {
+        if (window.EventDatabase?.saveEventData) await window.EventDatabase.saveEventData("rsvp", guest.id, rsvp);
+    } catch (error) {
+        console.error("Error al guardar la confirmación:", error);
+        alert("No se pudo guardar la confirmación. Intenta nuevamente.");
+        return;
+    }
+    const texto = response === "confirmado"
+        ? hasAssignedPasses
+            ? `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez. Seremos ${cantidad} ${cantidad === 1 ? "persona" : "personas"}.`
+            : `Hola, soy ${guest.name} y confirmo mi asistencia a la boda de Irvin Godoy y Mirlin Quiñónez.`
+        : `Hola, soy ${guest.name} y no podré asistir a la boda de Irvin Godoy y Mirlin Quiñónez.`;
+    window.location.href = `https://wa.me/50250044845?text=${encodeURIComponent(texto)}`;
+};
   

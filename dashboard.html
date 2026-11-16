@@ -1,3 +1,52 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard RSVP</title></head>
-<body><main><h1>Dashboard RSVP</h1><p>Irvin Godoy &amp; Mirlin Quiñónez · 28 . 11 . 2026</p><p id="summary"></p><table><thead><tr><th>Invitado</th><th>Pases</th><th>Respuesta</th></tr></thead><tbody id="rows"></tbody></table></main><script type="module" src="dashboard.js"></script></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard RSVP | Irvin &amp; Mirlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Panel de organización</p>
+        <h1>Confirmaciones</h1>
+        <p class="event-line">Irvin Godoy <span>&amp;</span> Mirlin Quiñónez <b>·</b> 28 de noviembre de 2026</p>
+      </div>
+      <div class="date-mark" aria-label="Fecha del evento"><strong>28</strong><span>NOV<br>2026</span></div>
+    </header>
+
+    <section class="stats" aria-label="Resumen de confirmaciones">
+      <article class="stat-card"><span class="stat-label">Invitados</span><strong id="total-guests">—</strong><span class="stat-note">en la lista</span></article>
+      <article class="stat-card accent"><span class="stat-label">Confirmados</span><strong id="confirmed-count">—</strong><span class="stat-note">respuestas positivas</span></article>
+      <article class="stat-card"><span class="stat-label">Asistentes</span><strong id="attendee-count">—</strong><span class="stat-note">pases confirmados</span></article>
+      <article class="stat-card"><span class="stat-label">Pendientes</span><strong id="pending-count">—</strong><span class="stat-note">sin respuesta</span></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div><h2>Lista de invitados</h2><p id="summary">Cargando información…</p></div>
+        <div class="controls">
+          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar invitado" aria-label="Buscar invitado"></label>
+          <select id="status-filter" aria-label="Filtrar por estado">
+            <option value="todos">Todos los estados</option><option value="confirmado">Confirmados</option><option value="no_asistira">No asistirán</option><option value="pendiente">Pendientes</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Invitado</th><th>Pases asignados</th><th>Estado</th><th>Confirmados</th></tr></thead>
+          <tbody id="rows"><tr><td colspan="4" class="loading">Cargando invitados…</td></tr></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" hidden>No hay invitados que coincidan con la búsqueda.</p>
+    </section>
+    <footer><span class="live-dot"></span> Datos sincronizados con Firebase</footer>
+  </main>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

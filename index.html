@@ -98,7 +98,7 @@
             <div class="guest-section fade-in-element">
                 <p id="guest-name" class="fade-in-element">¡Fam. Rosales, están invitados!</p>
             </div>
-            <div class="invitation-info-section fade-in-element fade-in-element">
+             <div class="invitation-info-section fade-in-element fade-in-element">
                 <p>Invitación válida por <span id="passes">2 pases</span> <i class="fa-solid fa-ticket"></i> </p>
             </div>
             <section class="parents-section">
@@ -255,7 +255,17 @@
                  class="lord-icon-style"
                  ></lord-icon>
                 <p>Para nosotros es muy importante que confirmes tu asistencia lo antes posible, o bien que nos indiques que no podrás acompañarnos.</p>
-                <button type="button" onclick="confirmarWhatsApp()">Confirmar tu asistencia</button>
+                 <button type="button" onclick="abrirConfirmacion()">Confirmar tu asistencia</button>
+                 <div id="rsvp-form" class="hidden" role="dialog" aria-label="Confirmación de asistencia">
+                     <p>¿Podrás acompañarnos?</p>
+                     <label><input type="radio" name="rsvp-response" value="confirmado" checked> Sí, asistiré</label>
+                     <label><input type="radio" name="rsvp-response" value="no_asistira"> No podré asistir</label>
+                     <div id="rsvp-passes-field">
+                         <label for="rsvp-passes">Cantidad de asistentes:</label>
+                         <input type="number" id="rsvp-passes" min="1" required>
+                     </div>
+                     <button type="button" onclick="enviarConfirmacion()">Enviar confirmación</button>
+                 </div>
             </div>
             <div class="photo-full fade-in-element fade-in-element">
                 <img src="/images/S3.jpg" alt="Foto de la pareja" loading="lazy">
