@@ -21,10 +21,12 @@
     </header>
 
     <section class="stats" aria-label="Resumen de confirmaciones">
-      <article class="stat-card"><span class="stat-label">Invitados</span><strong id="total-guests">—</strong><span class="stat-note">en la lista</span></article>
-      <article class="stat-card accent"><span class="stat-label">Confirmados</span><strong id="confirmed-count">—</strong><span class="stat-note">respuestas positivas</span></article>
-      <article class="stat-card"><span class="stat-label">Asistentes</span><strong id="attendee-count">—</strong><span class="stat-note">pases confirmados</span></article>
-      <article class="stat-card"><span class="stat-label">Pendientes</span><strong id="pending-count">—</strong><span class="stat-note">sin respuesta</span></article>
+      <article class="stat-card"><span class="stat-label">Invitaciones</span><strong id="total-guests">—</strong><span class="stat-note">en la lista completa</span></article>
+      <article class="stat-card accent"><span class="stat-label">Asistentes con pases confirmados</span><strong id="attendee-count">—</strong><span class="stat-note">suma de pases</span></article>
+      <article class="stat-card"><span class="stat-label">Asistentes confirmados con pases libres</span><strong id="free-confirmed-count">—</strong><span class="stat-note">invitaciones</span></article>
+      <article class="stat-card"><span class="stat-label">Pendientes</span><strong id="pending-count">—</strong><span class="stat-note">todas las invitaciones</span></article>
+      <article class="stat-card"><span class="stat-label">Con pases que no asistirán</span><strong id="declined-pass-count">—</strong><span class="stat-note">invitaciones</span></article>
+      <article class="stat-card"><span class="stat-label">Con pases libres que no asistirán</span><strong id="declined-free-count">—</strong><span class="stat-note">invitaciones</span></article>
     </section>
 
     <section class="panel">
@@ -37,12 +39,7 @@
           </select>
         </div>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Invitado</th><th>Pases asignados</th><th>Estado</th><th>Confirmados</th></tr></thead>
-          <tbody id="rows"><tr><td colspan="4" class="loading">Cargando invitados…</td></tr></tbody>
-        </table>
-      </div>
+      <div class="table-wrap"><table><thead><tr><th>Invitado</th><th>Pases asignados</th><th>Estado</th><th>Confirmados</th></tr></thead><tbody id="rows"><tr><td colspan="4" class="loading">Cargando invitados…</td></tr></tbody></table></div>
       <p id="empty" class="empty" hidden>No hay invitados que coincidan con la búsqueda.</p>
     </section>
     <footer><span class="live-dot"></span> Datos sincronizados con Firebase</footer>
