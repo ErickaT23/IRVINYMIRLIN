@@ -1,3 +1,38 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Administración RSVP</title></head>
-<body><main><h1>Administración RSVP</h1><p>Evento: irvinymirlin2026</p><form id="guest-form"><input id="guest-id" placeholder="ID" required><input id="guest-name" placeholder="Nombre" required><input id="guest-passes" type="number" min="1" placeholder="Pases asignados (opcional)"><button>Guardar invitado</button></form><p id="status"></p><ul id="guests"></ul></main><script type="module" src="admin.js"></script></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Administración | Irvin &amp; Mirlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><p class="eyebrow">Panel de organización</p><h1>Invitados</h1><p class="event-line">Irvin Godoy <span>&amp;</span> Mirlin Quiñónez · 28 de noviembre de 2026</p></div>
+      <a class="dashboard-link" href="dashboard.html">Ver dashboard <span>↗</span></a>
+    </header>
+    <div class="layout">
+      <section class="panel form-panel">
+        <div class="panel-heading"><p class="eyebrow">Registro</p><h2 id="form-title">Nuevo invitado</h2><p>Crea o actualiza los datos que se reflejarán en la invitación.</p></div>
+        <form id="guest-form">
+          <label for="guest-id">ID de invitación</label><input id="guest-id" placeholder="Ej. 62" required>
+          <label for="guest-name">Nombre del invitado</label><input id="guest-name" placeholder="Nombre o familia" required>
+          <label for="guest-passes">Pases asignados <small>(dejar vacío para Libre)</small></label><input id="guest-passes" type="number" min="1" placeholder="Libre">
+          <label class="check-row"><input id="guest-active" type="checkbox" checked><span>Invitación activa</span></label>
+          <div class="form-actions"><button class="primary" type="submit" id="save-button">Guardar invitado</button><button class="secondary hidden" type="button" id="cancel-button">Cancelar edición</button></div>
+        </form>
+        <p id="status" class="status-message" role="status"></p>
+      </section>
+      <section class="panel list-panel">
+        <div class="list-heading"><div><p class="eyebrow">Firebase</p><h2>Lista de invitados</h2><p id="list-summary">Cargando…</p></div><label class="search"><span>⌕</span><input id="guest-search" type="search" placeholder="Buscar" aria-label="Buscar invitado"></label></div>
+        <div id="guests" class="guest-list"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

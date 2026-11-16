@@ -23,10 +23,11 @@ import { getEventData } from "./database.js";
       id: guestRecord.id || guestId,
       name: guestRecord.nombre,
       passes: Number.isInteger(guestRecord.pases) ? guestRecord.pases : null,
+      activo: guestRecord.activo !== false,
       gender: "mixto"
     };
   
-    if (guest) {
+    if (guest && guest.activo) {
       // 👇 DISPONIBLE PARA script.js (WhatsApp, etc.)
       window.currentGuest = guest;
   
